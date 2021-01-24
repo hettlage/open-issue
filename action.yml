@@ -1,13 +1,31 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: Create a new issue
+
+author: Christian Hettlage
+
+description: Create a new issue on GitHub.
+
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  token:
+    description: Github Token
     required: true
-    default: '1000'
+  title:
+    description: Title for the issue
+    required: true
+  body:
+    description: Issue body
+    required: false
+  assignees:
+    description: Issue assignees
+    required: false
+
 outputs:
-  time: # output will be available to future steps
-    description: 'The message to output'
+  issue:
+    description: The issue object as a JSON string
+
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: node12
+  main: "dist/index.js"
+
+branding:
+  icon: alert-octagon
+  color: purple
